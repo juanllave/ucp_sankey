@@ -1,0 +1,54 @@
+<html>
+<body>
+ <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<div id="sankey_multiple" style="width: 900px; height: 300px;"></div>
+
+<script type="text/javascript">
+  google.charts.load("current", {packages:["sankey"]});
+  google.charts.setOnLoadCallback(drawChart);
+   function drawChart() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'From');
+    data.addColumn('string', 'To');
+    data.addColumn('number', 'Weight');
+    data.addRows([
+       [ 'Aheer', 'Smith', 32 ],
+       [ 'Aheer', 'Toews', 539 ],
+       [ 'Aheer', 'Jean', 653 ],
+       [ 'Aheer', 'Loewen', 16 ],
+       [ 'Aheer', 'Schulz', 345 ],
+       [ 'Aheer', 'Sawhney', 459 ],
+       [ 'Aheer', 'Lost', 116 ],
+       [ 'Sawhney', 'Smith', 114 ],
+       [ 'Sawhney', 'Toews', 539 ],
+       [ 'Sawhney', 'Jean', 653 ],
+       [ 'Sawhney', 'Loewen', 272 ],
+       [ 'Sawhney', 'Schulz', 389 ],
+       [ 'Sawhney', 'Lost', 279 ],
+       [ 'Loewen', 'Smith', 3401 ],
+       [ 'Loewen', 'Toews', 999 ],
+       [ 'Loewen', 'Jean', 1094 ],
+       [ 'Loewen', 'Schulz', 188 ],
+       [ 'Loewen', 'Lost', 887 ],
+       [ 'Schulz', 'Smith', 774 ],
+       [ 'Schulz', 'Toews', 4202 ],
+       [ 'Schulz', 'Jean', 952 ],
+       [ 'Schulz', 'Lost', 1044 ],
+       [ 'Jean', 'Smith', 3153 ],
+       [ 'Jean', 'Toews', 5686 ],
+       [ 'Jean', 'Lost', 336 ]
+    ]);
+
+    // Set chart options
+    var options = {
+      width: 600,
+    };
+
+    // Instantiate and draw our chart, passing in some options.
+    var chart = new google.visualization.Sankey(document.getElementById('sankey_multiple'));
+    chart.draw(data, options);
+   }
+</script>
+</body>
+</html>

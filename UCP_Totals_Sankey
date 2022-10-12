@@ -1,0 +1,74 @@
+<html>
+<body>
+ <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<div id="sankey_multiple" style="width: 900px; height: 300px;"></div>
+
+<script type="text/javascript">
+  google.charts.load("current", {packages:["sankey"]});
+  google.charts.setOnLoadCallback(drawChart);
+   function drawChart() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'From');
+    data.addColumn('string', 'To');
+    data.addColumn('number', 'Weight');
+    data.addRows([
+       [ 'R1_Smith', 'R2_Smith', 34949 ],
+       [ 'R2_Smith', 'R3_Smith', 34949 ],
+       [ 'R3_Smith', 'R4_Smith', 34949 ],
+       [ 'R4_Smith', 'R5_Smith', 34949 ],
+       [ 'R5_Smith', 'R6_Smith', 34949 ],
+       [ 'R1_Toews', 'R2_Toews', 24831 ],
+       [ 'R2_Toews', 'R3_Toews', 24831 ],
+       [ 'R3_Toews', 'R4_Toews', 24831 ],
+       [ 'R4_Toews', 'R5_Toews', 24831 ],
+       [ 'R5_Toews', 'R6_Toews', 24831 ],
+       [ 'R1_Jean', 'R2_Jean', 9301 ],
+       [ 'R2_Jean', 'R3_Jean', 9301 ],
+       [ 'R3_Jean', 'R4_Jean', 9301 ],
+       [ 'R4_Jean', 'R5_Jean', 9301 ],
+       [ 'R1_Schulz', 'R2_Schulz', 5835 ],
+       [ 'R2_Schulz', 'R3_Schulz', 5835 ],
+       [ 'R3_Schulz', 'R4_Schulz', 5835 ],
+       [ 'R1_Loewen', 'R2_Loewen', 6496 ],
+       [ 'R2_Loewen', 'R3_Loewen', 6496 ],       
+       [ 'R1_Sawhney', 'R2_Sawhney', 1787 ],
+       [ 'R1_Aheer', 'R2_Smith', 32 ],
+       [ 'R1_Aheer', 'R2_Toews', 539 ],
+       [ 'R1_Aheer', 'R2_Jean', 653 ],
+       [ 'R1_Aheer', 'R2_Loewen', 16 ],
+       [ 'R1_Aheer', 'R2_Schulz', 345 ],
+       [ 'R1_Aheer', 'R2_Sawhney', 459 ],
+       [ 'R1_Aheer', 'Lost', 116 ],
+       [ 'R2_Sawhney', 'R3_Smith', 114 ],
+       [ 'R2_Sawhney', 'R3_Toews', 539 ],
+       [ 'R2_Sawhney', 'R3_Jean', 653 ],
+       [ 'R2_Sawhney', 'R3_Loewen', 272 ],
+       [ 'R2_Sawhney', 'R3_Schulz', 389 ],
+       [ 'R2_Sawhney', 'Lost', 279 ],
+       [ 'R3_Loewen', 'R4_Smith', 3401 ],
+       [ 'R3_Loewen', 'R4_Toews', 999 ],
+       [ 'R3_Loewen', 'R4_Jean', 1094 ],
+       [ 'R3_Loewen', 'R4_Schulz', 188 ],
+       [ 'R3_Loewen', 'Lost', 887 ],
+       [ 'R4_Schulz', 'R5_Smith', 774 ],
+       [ 'R4_Schulz', 'R5_Toews', 4202 ],
+       [ 'R4_Schulz', 'R5_Jean', 952 ],
+       [ 'R4_Schulz', 'Lost', 1044 ],
+       [ 'R5_Jean', 'R6_Smith', 3153 ],
+       [ 'R5_Jean', 'R6_Toews', 5686 ],
+       [ 'R5_Jean', 'Lost', 336 ]
+    ]);
+
+    // Set chart options
+    var options = {
+      width: 600,
+    };
+
+    // Instantiate and draw our chart, passing in some options.
+    var chart = new google.visualization.Sankey(document.getElementById('sankey_multiple'));
+    chart.draw(data, options);
+   }
+</script>
+</body>
+</html>
